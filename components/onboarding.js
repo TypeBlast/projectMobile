@@ -1,4 +1,5 @@
 import React, { useRef, useState } from 'react';
+import { useNavigation } from '@react-navigation/native';
 import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
 import AppIntroSlider from 'react-native-app-intro-slider';
 
@@ -40,9 +41,14 @@ function Onboarding() {
         }
     };
 
+    const navigation = useNavigation();
+
+    function navigateToLogin(){
+        navigation.navigate('login')
+    }
+
     const handleDoneButtonPress = () => {
-        console.log("Onboarding concluído");
-        // Aqui você pode adicionar lógica para redirecionar o usuário para a tela inicial ou qualquer outra ação
+        navigateToLogin();
     };
 
     return (

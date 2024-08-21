@@ -6,7 +6,8 @@ import { useState, useEffect } from 'react';
 import * as Font from 'expo-font';
 
 //Import de telas
-import Index from './app/index'
+import Index from './app/index';
+import Login from './app/login';
 
 const Stack = createStackNavigator()
 
@@ -39,7 +40,13 @@ export default function App() {
       <Stack.Navigator initialRouteName="index">
         <Stack.Screen name="index" component={Index} options={{
           title: false,
-          headerTransparent: true
+          headerTransparent: true,
+          headerShown: false
+        }} />
+        <Stack.Screen name="login" component={Login} options={{
+          title: false,
+          headerTransparent: true,
+          headerShown: false
         }} />
       </Stack.Navigator>
     </NavigationContainer>

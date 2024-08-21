@@ -1,3 +1,4 @@
+import { useNavigation } from '@react-navigation/native';
 import React from 'react';
 import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native'
 
@@ -6,10 +7,15 @@ import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native'
 
 function OnboardingItem({item}) {
 
+    const navigation = useNavigation();
+
+    function navigateToLogin(){
+        navigation.navigate('login')
+    }
 
     return(
         <View style={styles.container} >
-            <TouchableOpacity style={styles.buttonSkip}>
+            <TouchableOpacity style={styles.buttonSkip} onPress={navigateToLogin}>
             <Text style={styles.skip} >Skip</Text>
             </TouchableOpacity>
             <Image source={item.image} style={styles.image} />
