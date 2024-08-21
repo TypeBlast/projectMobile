@@ -8,6 +8,7 @@ import * as Font from 'expo-font';
 //Import de telas
 import Index from './app/index';
 import Login from './app/login';
+import Register from './app/register';
 
 const Stack = createStackNavigator()
 
@@ -47,6 +48,10 @@ export default function App() {
           title: false,
           headerTransparent: true,
           headerShown: false
+        }} />
+        <Stack.Screen name="register" component={Register} options={{
+          title: false,
+          headerTransparent: true,
         }} />
       </Stack.Navigator>
     </NavigationContainer>

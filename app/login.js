@@ -2,12 +2,20 @@ import React from 'react';
 import { View, Image, TouchableOpacity, Text, StyleSheet } from 'react-native';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { faGoogle } from '@fortawesome/free-brands-svg-icons';
+import { useNavigation } from '@react-navigation/native';
 
 //Import components
 import InputEmail from '../components/inputs/inputEmail';
 import InputKey from '../components/inputs/inputKey';
 
 function Login() {
+
+    const navigation = useNavigation();
+
+    function navigateToRegister(){
+        navigation.navigate('register')
+    }
+
     return (
         <View style={styles.container}>
             <Text style={styles.title}>Entre em sua conta!</Text>
@@ -25,7 +33,7 @@ function Login() {
             <TouchableOpacity style={styles.buttonLogin}>
                 <Text style={styles.textButtonLogin}>Entrar</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={{
+            <TouchableOpacity onPress={navigateToRegister} style={{
                 marginTop: "5%"
             }}>
                 <Text style={styles.textNewAccount}>Criar nova conta</Text>
