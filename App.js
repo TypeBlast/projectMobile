@@ -9,6 +9,7 @@ import * as Font from 'expo-font';
 import Index from './app/index';
 import Login from './app/login';
 import Register from './app/register';
+import Home from './app/home';
 
 const Stack = createStackNavigator()
 
@@ -49,6 +50,10 @@ export default function App() {
           headerTransparent: true
         }} />
         <Stack.Screen name="register" component={Register} options={{
+          title: false,
+          headerTransparent: true,
+        }} />
+        <Stack.Screen name="home" component={Home} options={{
           title: false,
           headerTransparent: true,
         }} />
