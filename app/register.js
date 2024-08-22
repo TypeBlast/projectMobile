@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { View, StyleSheet, Image, Text, TouchableOpacity, Alert } from "react-native";
 import { useNavigation } from '@react-navigation/native';
-import axios from '../services/api'; // Importe o Axios configurado
+import axios from '../axios/api'; // Importe o Axios configurado
 
 // Import components
 import InputEmail from "../components/inputs/inputEmail";

@@ -3,7 +3,7 @@ import { View, Image, TouchableOpacity, Text, StyleSheet, Alert } from 'react-na
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { faGoogle } from '@fortawesome/free-brands-svg-icons';
 import { useNavigation } from '@react-navigation/native';
-import api from '../services/api'; // Importe o Axios configurado
+import api from '../axios/api'; // Importe o Axios configurado
 
 // Import components
 import InputEmail from '../components/inputs/inputEmail';
