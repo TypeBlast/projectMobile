@@ -55,14 +55,14 @@ const styles = StyleSheet.create({
         fontSize: 24,
         color: "#EB389A",
         marginLeft: "7%",
-        marginTop: "5%"
+        paddingVertical: '2%'
     },
     description: {
         fontFamily: 'Poppins-Regular',
         fontSize: 14,
         width: 200,
         marginLeft: "7%",
-        marginTop: "3%"
+        marginTop: "1%"
     }
 })
 
