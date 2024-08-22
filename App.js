@@ -46,8 +46,7 @@ export default function App() {
         }} />
         <Stack.Screen name="login" component={Login} options={{
           title: false,
-          headerTransparent: true,
-          headerShown: false
+          headerTransparent: true
         }} />
         <Stack.Screen name="register" component={Register} options={{
           title: false,
