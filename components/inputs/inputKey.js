@@ -1,31 +1,28 @@
 import React from 'react';
 import { View, TextInput, StyleSheet } from 'react-native';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
-
-//Import Icons
 import { faKey } from '@fortawesome/free-solid-svg-icons';
 
-
-function InputKey() {
-
-
-    return(
+function InputKey({ value, onChangeText, secureTextEntry }) {
+    return (
         <View style={styles.container}>
-            <FontAwesomeIcon icon={faKey} color='#D9D9D9' size={20} style={styles.icon}/>  
-            <TextInput 
-            style={styles.input}
-            placeholder="Senha"
-            keyboardType="default"
-            />  
+            <FontAwesomeIcon icon={faKey} color='#D9D9D9' size={20} style={styles.icon} />
+            <TextInput
+                style={styles.input}
+                placeholder="Senha"
+                keyboardType="default"
+                value={value}
+                onChangeText={onChangeText}
+                secureTextEntry={secureTextEntry}
+            />
         </View>
     );
-
 }
 
 const styles = StyleSheet.create({
     container: {
         flexDirection: 'row',
-        marginTop: "5%"
+        marginTop: "5%",
     },
     input: {
         borderBottomColor: "#D9D9D9",
@@ -34,8 +31,8 @@ const styles = StyleSheet.create({
     },
     icon: {
         marginTop: "2%",
-        marginRight: "2%"
-    }
-})
+        marginRight: "2%",
+    },
+});
 
 export default InputKey;
