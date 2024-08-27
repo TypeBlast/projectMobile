@@ -5,11 +5,11 @@ import { ActivityIndicator } from 'react-native';
 import { useState, useEffect } from 'react';
 import * as Font from 'expo-font';
 
-//Import de telas
+// Import de telas
 import Index from './app/index';
 import Login from './app/login';
 import Register from './app/register';
-import Home from './app/home';
+import HomeTabs from './app/homeTabs';  
 
 const Stack = createStackNavigator()
 
@@ -53,7 +53,7 @@ export default function App() {
           title: false,
           headerTransparent: true,
         }} />
-        <Stack.Screen name="home" component={Home} options={{
+        <Stack.Screen name="home" component={HomeTabs} options={{  // Modificado aqui
           title: false,
           headerTransparent: true,
         }} />
