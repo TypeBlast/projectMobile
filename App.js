@@ -10,12 +10,13 @@ import Index from './app/index';
 import Login from './app/login';
 import Register from './app/register';
 import HomeTabs from './app/homeTabs';  
+import { UserProvider } from './app/UserContext';
 
-const Stack = createStackNavigator()
+const Stack = createStackNavigator();
 
 export default function App() {
-
   const [fontsLoaded, setFontsLoaded] = useState(false);
+
   useEffect(() => {
     const loadFonts = async () => {
       await Font.loadAsync({
@@ -38,26 +39,28 @@ export default function App() {
   }
 
   return (
-    <NavigationContainer>
-      <Stack.Navigator initialRouteName="index">
-        <Stack.Screen name="index" component={Index} options={{
-          title: false,
-          headerTransparent: true,
-          headerShown: false
-        }} />
-        <Stack.Screen name="login" component={Login} options={{
-          title: false,
-          headerTransparent: true
-        }} />
-        <Stack.Screen name="register" component={Register} options={{
-          title: false,
-          headerTransparent: true,
-        }} />
-        <Stack.Screen name="home" component={HomeTabs} options={{  // Modificado aqui
-          title: false,
-          headerTransparent: true,
-        }} />
-      </Stack.Navigator>
-    </NavigationContainer>
+    <UserProvider>
+      <NavigationContainer>
+        <Stack.Navigator initialRouteName="index">
+          <Stack.Screen name="index" component={Index} options={{
+            title: false,
+            headerTransparent: true,
+            headerShown: false
+          }} />
+          <Stack.Screen name="login" component={Login} options={{
+            title: false,
+            headerTransparent: true
+          }} />
+          <Stack.Screen name="register" component={Register} options={{
+            title: false,
+            headerTransparent: true,
+          }} />
+          <Stack.Screen name="home" component={HomeTabs} options={{
+            title: false,
+            headerTransparent: true,
+          }} />
+        </Stack.Navigator>
+      </NavigationContainer>
+    </UserProvider>
   );
 }

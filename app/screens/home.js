@@ -1,25 +1,30 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
+import { UserContext } from '../UserContext'; // Importe o UserContext
 
-const Home = () => {
-  return (
-    <View style={styles.container}>
-      <Text style={styles.text}>Página Home</Text>
-    </View>
-  );
-};
+function HomePage() {
+    const { user } = useContext(UserContext); // Utilize o UserContext para acessar o usuário logado
+
+    return (
+        <View style={styles.container}>
+            <Text style={styles.welcomeText}>Bem-vindo, {user?.name || 'Usuário'}!</Text>
+            {/* Adicione outros componentes e funcionalidades da HomePage aqui */}
+        </View>
+    );
+}
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#FFF',
-  },
-  text: {
-    fontSize: 24,
-    fontFamily: 'Poppins-Bold',
-  },
+    container: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: '#FFF',
+    },
+    welcomeText: {
+        fontSize: 24,
+        fontFamily: 'Poppins-Bold',
+        color: '#333',
+    },
 });
 
-export default Home;
+export default HomePage;

@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { View, Image, TouchableOpacity, Text, StyleSheet, Alert } from 'react-native';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { faGoogle } from '@fortawesome/free-brands-svg-icons';
 import { useNavigation } from '@react-navigation/native';
 import api from '../axios/api'; // Importe o Axios configurado
+import { UserContext } from './UserContext'; // Importe o UserContext
 
 // Import components
 import InputEmail from '../components/inputs/inputEmail';
@@ -13,30 +14,22 @@ function Login() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const navigation = useNavigation();
+    const { setUser } = useContext(UserContext); // Use o UserContext
 
     const handleLogin = async () => {
         try {
             const user = { email, password };
             const response = await api.logUser(user);
 
-            // Supondo que a resposta da API venha com um código de status e uma mensagem
+            // Supondo que a resposta da API contenha o objeto user e o status 200
             if (response.status === 201) {
-                Alert.alert('Sucesso', response.data.message);
-                navigation.navigate('home'); // Substitua 'index' pela tela desejada
+                setUser(response.data.user); // Armazena o usuário no contexto
+                navigation.navigate('home'); // Navega para a tela Home
             } else {
                 Alert.alert('Erro', response.data.message);
             }
         } catch (error) {
-            if (error.response) {
-                // Erro de resposta da API
-                Alert.alert('Erro', error.response.data.message);
-            } else if (error.request) {
-                // Erro de solicitação, sem resposta
-                Alert.alert('Erro', 'Não foi possível conectar-se à API. Verifique sua conexão.');
-            } else {
-                // Outros erros
-                Alert.alert('Erro', error.message || 'Ocorreu um erro durante o login.');
-            }
+            Alert.alert('Erro', 'Ocorreu um erro ao tentar fazer login.');
         }
     };
 
