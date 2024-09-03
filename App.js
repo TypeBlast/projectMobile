@@ -58,6 +58,7 @@ export default function App() {
           <Stack.Screen name="home" component={HomeTabs} options={{
             title: false,
             headerTransparent: true,
+            headerShown: false
           }} />
         </Stack.Navigator>
       </NavigationContainer>

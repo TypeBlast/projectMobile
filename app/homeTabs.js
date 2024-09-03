@@ -2,7 +2,6 @@ import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { faHouse, faShop, faUsersGear, faCartShopping, faUser } from '@fortawesome/free-solid-svg-icons';
-import { View, Text } from 'react-native';
 
 // Importando as telas que serão usadas nas abas
 import HomeScreen from './screens/home';
@@ -17,9 +16,11 @@ function HomeTabs() {
   return (
     <Tab.Navigator
       screenOptions={({ route }) => ({
-        tabBarIcon: ({ color, size }) => {
+        tabBarIcon: ({ color }) => {
           let icon;
+          let size = 32;  // Tamanho padrão para todos os ícones
 
+          // Definindo o ícone e o tamanho específico para cada rota
           switch (route.name) {
             case 'Home':
               icon = faHouse;
@@ -35,6 +36,7 @@ function HomeTabs() {
               break;
             case 'User':
               icon = faUser;
+              size = 30;  // Aumenta o tamanho do ícone específico da aba 'Home'
               break;
           }
 
@@ -42,9 +44,10 @@ function HomeTabs() {
         },
         tabBarActiveTintColor: '#E01483',
         tabBarInactiveTintColor: 'gray',
+        tabBarShowLabel: false,  // Remove os nomes das tabs
         tabBarStyle: {
           position: 'absolute',
-          bottom: 10,
+          bottom: 30,
           left: 20,
           right: 20,
           height: 60,
@@ -55,11 +58,6 @@ function HomeTabs() {
           shadowOffset: { width: 0, height: 5 },
           shadowRadius: 10,
           elevation: 5,
-        },
-        tabBarLabelStyle: {
-          fontSize: 12,
-          fontWeight: '600',
-          paddingBottom: 5,
         },
       })}
     >
