@@ -41,7 +41,7 @@ export default function App() {
   return (
     <UserProvider>
       <NavigationContainer>
-        <Stack.Navigator initialRouteName="index">
+        <Stack.Navigator initialRouteName="home">
           <Stack.Screen name="index" component={Index} options={{
             title: false,
             headerTransparent: true,

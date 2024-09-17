@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { Platform } from 'react-native';
 
-const LOCAL_IP = '192.168.100.94'; // Troque 192.168.x.x pelo IP correto
+const LOCAL_IP = '10.89.240.93'; // Troque 192.168.x.x pelo IP correto
 
 // Caso específico para Android Emulator (10.0.2.2)
 // Usamos uma verificação simples para o emulador no Android
