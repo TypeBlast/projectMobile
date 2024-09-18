@@ -12,6 +12,7 @@ import { useNavigation } from "@react-navigation/native"; // Importa o hook de n
 import { UserContext } from "../UserContext";
 import FontAwesome from "react-native-vector-icons/FontAwesome";
 import MaterialIcons from "react-native-vector-icons/MaterialIcons"; // Para os ícones de email e telefone
+import symbolicateStackTrace from "react-native/Libraries/Core/Devtools/symbolicateStackTrace";
 
 const { width, height } = Dimensions.get("window"); // Pega as dimensões da tela
 
@@ -77,7 +78,7 @@ const User = () => {
             </View>
           </View>
 
-          <View style={styles.BoxUser}>
+          <View style={styles.BoxEndereço}>
             <Text style={styles.textEndereços}>Endereços salvos</Text>
 
             {/* Ícone de lápis para editar endereços */}
@@ -109,11 +110,19 @@ const User = () => {
                 Travessa das Orquídeas, Vila Nova, 78
               </Text>
             </View>
+            <TouchableOpacity style={styles.adicionarEndereco}>
+              <Text style={styles.adicionarEndText}>Adicionar novo endereço</Text>
+            </TouchableOpacity>
           </View>
         </View>
 
         <View style={styles.bottomScreen}>
-          <Text>Teste do ScrollView</Text>
+            <TouchableOpacity style={styles.BoxPets}>
+            <Text style={styles.adicionarPetsText}>Adicionar Pets</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.BoxAgendamentos}>
+            <Text style={styles.adicionarPetsText}>Meus agendamentos</Text>
+            </TouchableOpacity>
         </View>
       </ScrollView>
     </View>
@@ -160,15 +169,35 @@ const styles = StyleSheet.create({
   logoutButton: {
     marginLeft: "auto",
     paddingHorizontal: width * 0.05,
+    bottom:"12%"
   },
   centerScreen: {
-    flex: 1,
+    flex: 0.3,
     backgroundColor: "white",
     justifyContent: "flex-start",
     alignItems: "center",
   },
   BoxUser: {
-    height: height * 0.22,
+    height: height * 0.16,
+    width: width * 0.9,
+    borderRadius: 20,
+    borderColor: "#BFBFBF",
+    borderWidth: 1,
+    marginTop: height * 0.05,
+    position: "relative",
+    backgroundColor: "white",
+    padding: height * 0.01,
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5,
+  },
+  BoxEndereço:{
+    height: height * 0.25,
     width: width * 0.9,
     borderRadius: 20,
     borderColor: "#BFBFBF",
@@ -188,8 +217,8 @@ const styles = StyleSheet.create({
   },
   bottomScreen: {
     flex: 1,
-    backgroundColor: "blue",
-    justifyContent: "center",
+    backgroundColor: "white",
+    justifyContent: "flex-start",
     alignItems: "center",
   },
   editButton: {
@@ -203,17 +232,80 @@ const styles = StyleSheet.create({
   infoRow: {
     flexDirection: "row",
     alignItems: "center",
-    marginVertical: height * 0.009,
+    marginVertical: height * 0.002,
   },
   infoText: {
-    fontSize: height * 0.02,
+    fontSize: height * 0.015,
     marginLeft: width * 0.03,
     color: "#333",
     fontFamily: "Poppins-Regular",
   },
   textEndereços: {
     fontFamily: "Poppins-Regular",
-    fontSize: height * 0.03,
+    fontSize: height * 0.027,
+    left: width * 0.03
+  },
+  adicionarEndereco:{
+    height: "25%",
+    width: "90%",
+    alignSelf:"center",
+    backgroundColor: "#EB389A",
+    borderRadius:10,
+    alignItems:"center",
+    justifyContent:"center",
+    marginTop: height * 0.01,
+  },
+  adicionarEndText:{
+    fontFamily: "Poppins-Bold",
+    color:"white",
+    fontSize: height * 0.022,
+  }, 
+  BoxPets:{
+    height: height * 0.07,
+    width: width * 0.9,
+    borderRadius: 20,
+    borderColor: "#BFBFBF",
+    borderWidth: 1,
+    position: "relative",
+    backgroundColor: "white",
+    padding: height * 0.01,
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5,
+    alignItems:"center",
+    justifyContent:"center",
+
+  },
+  adicionarPetsText:{
+    fontFamily: "Poppins-Regular",
+    color:"black",
+    fontSize: height * 0.022,
+  },
+  BoxAgendamentos:{
+    height: height * 0.07,
+    width: width * 0.9,
+    borderRadius: 20,
+    borderColor: "#BFBFBF",
+    borderWidth: 1,
+    marginTop: height * 0.035,
+    position: "relative",
+    backgroundColor: "white",
+    padding: height * 0.01,
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5,
+    alignItems:"center",
+    justifyContent:"center",
   },
 });
 

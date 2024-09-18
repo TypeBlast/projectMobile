@@ -18,21 +18,20 @@ function Login() {
 
     const handleLogin = async () => {
         try {
-            const user = { email, password };
-            const response = await api.logUser(user);
-
-            // Supondo que a resposta da API contenha o objeto user e o status 200
-            if (response.status === 201) {
-                setUser(response.data.user); // Armazena o usuário no contexto
-                navigation.navigate('home'); // Navega para a tela Home
-            } else {
-                Alert.alert('Erro', response.data.message);
-            }
+          const user = { email, password };
+          const response = await api.logUser(user);
+      
+          if (response.status === 201) { // Use o código de status correto
+            setUser(response.data.user); // Armazena o usuário no contexto
+            navigation.navigate('home'); // Navega para a tela Home
+          } else {
+            Alert.alert('Erro', response.data.message || 'Erro desconhecido.');
+          }
         } catch (error) {
-            Alert.alert('Erro', 'Ocorreu um erro ao tentar fazer login.');
+          Alert.alert('Erro', 'Ocorreu um erro ao tentar fazer login.');
         }
-    };
-
+      };
+      
     const navigateToRegister = () => {
         navigation.navigate('register');
     };
